@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import { Link, useLocation } from "react-router-dom";
 import LogoWhite from '../../../../public/aeroplane.png';
+import useAuth from "../../../hooks/useAuth";
 // import Logo from '../../../../public/travel.png';
 
 
@@ -10,10 +11,11 @@ const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
   const location = useLocation();
   const [isHomePage, setIsHomePage] = useState(location.pathname === "/");
-//   const { logOut } = useContext(AuthContext);
+  const { user, logOut} = useAuth()
 
-console.log(scrolling);
-  const user = true
+  console.log(user?.photoURL);
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,37 +137,24 @@ console.log(scrolling);
           </ul>
         </div>
         <div className="navbar-end">
+        {user && (
+            <img
+              className="rounded-full me-4 w-12 h-12"
+              src={user?.photoURL}
+              alt=""
+            />
+          )}
+         
           {user ? (
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a>Profile</a>
-                </li>
-               
-                <li>
-                  <Link onClick={() => logOut()}>Logout</Link>
-                </li>
-              </ul>
-            </div>
+            <button
+              onClick={logOut}
+              className="btn btn-[#ce5a25]  text-white font-bold"
+            >
+              LogOut
+            </button>
           ) : (
             <Link to="/login">
-              <button
-                className={` px-10 py-3 font-semibold hover:bg-gray-800 hover:text-white hover:-outline-offset-8  hover:outline-primary outline rounded-md duration-300 hover:rounded-none ${
-                  isHomePage || scrolling
-                    ? "outline-gray-800"
-                    : "outline-primary text-white"
-                }`}
-              >
-                Login
-              </button>
+              <p className="bg-[#ce5a25] py-3 px-6 rounded-lg text-white font-bold me-4">Login</p>
             </Link>
           )}
         </div>
