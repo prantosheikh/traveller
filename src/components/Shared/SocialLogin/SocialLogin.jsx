@@ -3,16 +3,17 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 
 const SocialLogin = () => {
-    // const {googleSignIn} = useAuth()
+    const {signInWithGoogle} = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || "/";
 
     const handleGoogleSignIn = () => {
-        googleSignIn()
+      signInWithGoogle()
         .then((result) => {
           const loggedInUser = result.user;
           const saveUser = {
@@ -21,7 +22,7 @@ const SocialLogin = () => {
             photo: loggedInUser.photoURL,
           };
 
-          fetch("https://college-server-kappa.vercel.app/users", {
+          fetch("http://localhost:3000/users", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(saveUser),

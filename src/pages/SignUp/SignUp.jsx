@@ -30,7 +30,7 @@ const SignUp = () => {
           date: data.date,
         };
 
-        fetch("https://college-server-kappa.vercel.app/users", {
+        fetch("http://localhost:3000/users", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(saveUser),
@@ -148,7 +148,7 @@ const SignUp = () => {
                 type="submit"
                 className="bg-[#ff8b55] border rounded-lg w-100  text-white font-semibold py-2"
               >
-                Login
+                Sign Up
               </button>
             </div>
            <div className="mt-4">

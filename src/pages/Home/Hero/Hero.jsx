@@ -17,7 +17,7 @@ const Hero = () => {
     }
 
     fetch(
-      `https://college-server-kappa.vercel.app/collegeSearchByName/${searchValue}`
+      `http://localhost:3000/collegeSearchByName/${searchValue}`
     )
       .then((res) => res.json())
       .then((data) => {
