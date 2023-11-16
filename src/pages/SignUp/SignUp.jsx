@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
-// import useAuth from "../../hooks/useAuth";
+import SocialLogin from "../../components/Shared/SocialLogin/SocialLogin";
+
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, googleSignIn } = useAuth()
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const {
@@ -58,19 +58,18 @@ const SignUp = () => {
   console.log(watch("example")); // watch input value by passing the name of it
 
   return (
-    <div className="shadow-lg my-10 lg:px-12">
-      <div className="lg:flex px-10 lg:justify-around lg:items-center lg:min-h-screen">
+    <div className=" my-10 lg:px-12">
+      <div className="lg:flex px-10 gap-12 justify-center lg:items-center lg:min-h-screen">
+
+      <div className="lg:w-1/3">
+          <img src="https://i.ibb.co/jVvxsHc/justin-geo-walsiyen-KKb-P7-Qc-E2-WU-unsplash.jpg" alt="" />
+        </div>
         <div className="lg:w-1/2">
-          <h1 className="text-3xl font-semibold ">Create your Account.</h1>
-          <p className="mb-5">
-            Already member?{" "}
-            <Link to="/login" className="text-blue-600 font-bold">
-              Login here.
-            </Link>
-          </p>
+          <h1 className="text-3xl mb-4 font-semibold ">Create your Account.</h1>
+          
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex gap-6 justify-around w-full">
-              <div className="form-control w-1/2">
+            <div>
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
@@ -78,7 +77,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="Name"
                   {...register("name", { required: true })}
-                  className="input input-bordered"
+                  className="input input-bordered rounded-none"
                 />
                 {errors.name && (
                   <span className="text-red-600 mt-3">
@@ -86,26 +85,11 @@ const SignUp = () => {
                   </span>
                 )}
               </div>
-              <div className="form-control w-1/2">
-                <label className="label">
-                  <span className="label-text">PhotoURL</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="PhotoURL"
-                  {...register("userPhoto", { required: true })}
-                  className="input input-bordered"
-                />
-                {errors.name && (
-                  <span className="text-red-600 mt-3">
-                    Photo field is required
-                  </span>
-                )}
-              </div>
+          
             </div>
 
-            <div className="flex gap-6 justify-around w-full">
-              <div className="form-control w-1/2">
+            <div className="">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
@@ -113,7 +97,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="Email"
                   {...register("email", { required: true })}
-                  className="input input-bordered"
+                  className="input input-bordered rounded-none"
                 />
                 {errors.email && (
                   <span className="text-red-600 mt-3">
@@ -121,22 +105,7 @@ const SignUp = () => {
                   </span>
                 )}
               </div>
-              <div className="form-control w-1/2">
-                <label className="label">
-                  <span className="label-text">Date of birth</span>
-                </label>
-                <input
-                  type="date"
-                  placeholder="Date of birth"
-                  {...register("date", { required: true })}
-                  className="input input-bordered"
-                />
-                {errors.date && (
-                  <span className="text-red-600 mt-3">
-                    Date field is required
-                  </span>
-                )}
-              </div>
+             
             </div>
             <div className="form-control w-full">
               <label className="label">
@@ -151,7 +120,7 @@ const SignUp = () => {
                   maxLength: 20,
                   pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                 })}
-                className="input input-bordered"
+                className="input input-bordered rounded-none"
               />
               {errors.password?.type === "required" && (
                 <span className="text-red-600 mt-3">
@@ -176,18 +145,24 @@ const SignUp = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="bg-blue-700 rounded-xl border  w-100  text-white font-semibold py-4"
+                className="bg-[#ff8b55] border  w-100  text-white font-semibold py-2"
               >
                 Login
               </button>
             </div>
+           <div className="mt-4">
+           <p className="mb-5">
+            Already member?{" "}
+            <Link to="/login" className="text-[#e98f65]">
+              Login here.
+            </Link>
+          </p>
+           </div>
           </form>
-          {/* <SocialLogin></SocialLogin> */}
+          <SocialLogin></SocialLogin>
         </div>
 
-        <div className="lg:w-1/2">
-          <img src="https://i.ibb.co/GtTGv0W/unnamed.png" alt="" />
-        </div>
+        
       </div>
     </div>
   );
