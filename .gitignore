@@ -14,10 +14,6 @@ dist-ssr
 
 
 
-SignUp.jsx
-useAuth.jsx
-
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
