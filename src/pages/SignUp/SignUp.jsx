@@ -9,6 +9,7 @@ import useAuth from "../../hooks/useAuth";
 const SignUp = () => {
   const {createUser} = useAuth()
   const [error, setError] = useState("");
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const {
     register,
@@ -45,7 +46,7 @@ const SignUp = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              navigate("/");
+              navigate(from, {replace: true});
             }
           });
       })
@@ -62,7 +63,7 @@ const SignUp = () => {
       <div className="lg:flex px-10 gap-12 justify-center lg:items-center lg:min-h-screen">
 
       <div className="lg:w-1/3">
-          <img src="https://i.ibb.co/jVvxsHc/justin-geo-walsiyen-KKb-P7-Qc-E2-WU-unsplash.jpg" alt="" />
+          <img className="rounded-lg" src="https://i.ibb.co/jVvxsHc/justin-geo-walsiyen-KKb-P7-Qc-E2-WU-unsplash.jpg" alt="" />
         </div>
         <div className="lg:w-1/2">
           <h1 className="text-3xl mb-4 font-semibold ">Create your Account.</h1>
@@ -77,7 +78,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="Name"
                   {...register("name", { required: true })}
-                  className="input input-bordered rounded-none"
+                  className="input input-bordered rounded-lg"
                 />
                 {errors.name && (
                   <span className="text-red-600 mt-3">
@@ -97,7 +98,7 @@ const SignUp = () => {
                   type="text"
                   placeholder="Email"
                   {...register("email", { required: true })}
-                  className="input input-bordered rounded-none"
+                  className="input input-bordered rounded-lg"
                 />
                 {errors.email && (
                   <span className="text-red-600 mt-3">
@@ -120,7 +121,7 @@ const SignUp = () => {
                   maxLength: 20,
                   pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                 })}
-                className="input input-bordered rounded-none"
+                className="input input-bordered rounded-lg"
               />
               {errors.password?.type === "required" && (
                 <span className="text-red-600 mt-3">
@@ -145,7 +146,7 @@ const SignUp = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="bg-[#ff8b55] border  w-100  text-white font-semibold py-2"
+                className="bg-[#ff8b55] border rounded-lg w-100  text-white font-semibold py-2"
               >
                 Login
               </button>
