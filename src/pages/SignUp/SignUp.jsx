@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/Shared/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
 
 
 const SignUp = () => {
-
+  const {createUser} = useAuth()
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const {
@@ -21,7 +22,6 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        updateUserProfile(data.name, data.photoURL);
         const saveUser = {
           name: data.name,
           email: data.email,
