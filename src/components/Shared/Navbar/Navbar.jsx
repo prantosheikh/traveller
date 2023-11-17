@@ -139,7 +139,7 @@ const Navbar = () => {
         <div className="navbar-end">
         {user && (
             <img
-              className="rounded-full me-4 w-12 h-12"
+              className="rounded-full  w-12 h-12"
               src={user?.photoURL}
               alt=""
             />
@@ -148,7 +148,7 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={logOut}
-              className="btn btn-[#ce5a25]  text-white font-bold"
+              className="bg-[#ce5a25]  py-3 px-6 rounded-lg text-white font-bold"
             >
               LogOut
             </button>
