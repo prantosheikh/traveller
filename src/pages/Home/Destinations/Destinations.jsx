@@ -6,7 +6,7 @@ import "./style.css";
 const Destinations = () => {
   return (
     <Container>
-      <h1 className="text-3xl font-semibold text-gray-800">
+      <h1 className="text-3xl font-semibold my-6 text-gray-800">
         Trending Destinations
       </h1>
 
