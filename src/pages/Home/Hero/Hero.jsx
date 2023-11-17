@@ -57,18 +57,19 @@ const Hero = () => {
                   placeholder="Search"
                   name="search"
                   required
-                  className="px-4 py-2 border w-full border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#c76f46]"
+                  className="px-4 py-3 border w-full border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ce5a25]"
                 />
                 <button
                   type="submit"
-                  className="ml-2 px-4 py-2  transition-transform bg-[#ce5a25] text-white rounded-md focus:outline-none"
+                  className="ml-2 px-4 py-3 bg-[#ce5a25] transition-transform 
+                   text-white rounded-md focus:outline-none"
                 >
                   Search
                 </button>
               </form>
 
               {showAutocomplete && college.length > 0 && (
-                <div className="w-full  py-1">
+                <div className="w-full py-1">
                   <ul className="autocomplete-dropdown mt-5 w-full bg-white rounded">
                     {college.map((college) => (
                       <Link

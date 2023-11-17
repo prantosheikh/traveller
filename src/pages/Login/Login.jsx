@@ -47,8 +47,8 @@ const Login = () => {
 
   return (
     <Container>
-      <div className="w-72 mx-auto text-center">
-        <h3 className="text-3xl font-semibold my-2">Log In</h3>
+      <div className="w-72 mx-auto text-center pt-6">
+        <h3 className="text-3xl font-semibold  mb-2">Log In</h3>
         <p className="text-[19x] font-semibold">
           We're glad to see you again!
         </p>
@@ -61,7 +61,7 @@ const Login = () => {
         </p>
       </div>
 
-      <div className="w-[50%] mx-auto border my-10 py-10 px-10 rounded-lg">
+      <div className="w-[50%] mx-auto border border-gray-400 my-10 py-10 px-10 rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="">
             <div className="form-control">

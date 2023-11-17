@@ -1,3 +1,4 @@
+import Destinations from "../Destinations/Destinations";
 import Featured from "../Featured/Featured";
 import Hero from "../Hero/Hero";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Hero/>
             <Featured/>
+            <Destinations/>
         </div>
     );
 };
