@@ -136,7 +136,7 @@ const Booking = () => {
                   <p className="text-gray-700">{trips?.tourCode}</p>
                 </div>
               </div>
-              
+
               <div className="flex gap-3 items-center">
                 <div className="border rounded-lg p-4">
                   <WiTime10 className="text-xl" />
@@ -146,7 +146,7 @@ const Booking = () => {
                   <p className="text-gray-700">{trips?.duration}</p>
                 </div>
               </div>
-           
+
               <div className="flex gap-3 items-center">
                 <div className="border rounded-lg p-4">
                   <MdGroups className="text-xl" />
@@ -169,8 +169,29 @@ const Booking = () => {
           </div>
           <div className="w-[30%]">2</div>
         </div>
-        <div>
+
+        {/* Another Section  Two*/}
+        <div className="w-[70%]">
+          <div>
+            <h3 className="text-4xl font-medium">Description</h3>
+            <p className="mt-4 text-base text-gray-700" style={{ lineHeight: "30px" }}>
+              {trips?.description}
+            </p>
+          </div>
+          <div className="my-4">
+            <h2 className="text-2xl mt-7 mb-4">Tour Highlights</h2>
             
+
+            {trips?.tourHighlights && trips.tourHighlights.length > 0 ? (
+              <>
+              {trips?.tourHighlights.map((tourHighlight) => (
+              <li style={{lineHeight: "35px"}} className="text-base text-gray-800">{tourHighlight}</li>
+            ))}
+              </>
+            ) : (
+              <p>No available</p>
+            )}
+          </div>
         </div>
       </div>
     </Container>
