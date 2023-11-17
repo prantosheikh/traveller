@@ -10,7 +10,7 @@ const Destinations = () => {
         Trending Destinations
       </h1>
 
-      <div className="flex justify-between  gap-4 my-8">
+      <div className="flex justify-between  gap-4 ">
         <div className="w-[67%]">
           <div className="flex justify-center items-center gap-6">
             <Link to="/">
