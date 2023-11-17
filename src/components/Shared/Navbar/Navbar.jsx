@@ -69,25 +69,25 @@ const Navbar = () => {
                 <li className="group w-full">
                   <Link to="/">
                     Home
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25]   mt-[1px]"></span>
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500   mt-[1px]"></span>
                   </Link>
                 </li>
                 <li className="group w-full">
                   <Link to="/about">
                     About
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25]   mt-[1px]"></span>
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500   mt-[1px]"></span>
                   </Link>
                 </li>
                 <li className="group w-full">
                   <Link to="/admission">
                   Destination
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25]  mt-[1px]"></span>
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500  mt-[1px]"></span>
                   </Link>
                 </li>
                 <li className="group w-full">
                   <Link>
                     Contact
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 [#ce5a25]   mt-[1px]"></span>
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500  mt-[1px]"></span>
                   </Link>
                 </li>
               </ul>
@@ -113,25 +113,25 @@ const Navbar = () => {
             <li className="group">
               <Link to="/">
                 Home
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25] mt-[1px]"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500 mt-[1px]"></span>
               </Link>
             </li>
             <li className="group">
               <Link to="/about">
                 About
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25] mt-[1px]"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500 mt-[1px]"></span>
               </Link>
             </li>
             <li className="group">
               <Link to="/admission">
               Destination
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25] mt-[1px]"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500 mt-[1px]"></span>
               </Link>
             </li>
             <li className="group">
               <Link>
                 Contact
-                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-[#ce5a25] mt-[1px]"></span>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500 mt-[1px]"></span>
               </Link>
             </li>
           </ul>
@@ -148,13 +148,13 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={logOut}
-              className="bg-[#ce5a25] ms-4 py-3 px-6 rounded-lg text-white font-bold"
+              className="bg-orange-500 ms-4 py-3 px-6 rounded-lg text-white font-bold"
             >
               LogOut
             </button>
           ) : (
             <Link to="/login">
-              <p className="bg-[#ce5a25] py-3 px-6 rounded-lg text-white font-bold me-4">Login</p>
+              <p className="bg-orange-500 py-3 px-6 rounded-lg text-white font-bold me-4">Login</p>
             </Link>
           )}
         </div>

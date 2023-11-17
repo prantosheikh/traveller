@@ -51,10 +51,9 @@ const Destinations = () => {
             </select>
           </div>
           <div>
-          <div className="border bg-[#ce5a25]  p-3 ms-8 rounded-full">
-            
-            <IoMdSearch className="cursor-pointer text-4xl text-white " />
-          </div>
+            <div className="border bg-orange-500  p-3 ms-8 rounded-full">
+              <IoMdSearch className="cursor-pointer text-4xl text-white " />
+            </div>
           </div>
         </div>
       </div>

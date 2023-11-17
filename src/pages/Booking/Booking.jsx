@@ -261,7 +261,27 @@ const Booking = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[30%] border sticky top-0 border-orange-600 rounded-lg"></div>
+
+              <div className="w-[30%] p-10 border sticky top-28 bottom-12 h-96 border-orange-600 rounded-lg">
+                <h3 className="text-xl">Booking Form</h3>
+                <div className="flex justify-between my-4">
+                  <h4 className="text-lg">From:</h4>
+                  <input className="border rounded-lg " type="text" />
+                </div>
+                <hr />
+                <div className="my-4">Time:</div>
+                <hr />
+                <div className="flex justify-between items-center my-4">
+                  <h5>Tickets:</h5>
+                  <p>please, select date first</p>
+                </div>
+                <h3 className="text-lg text-gray-700">Add Extra</h3>
+                <div className="flex justify-between items-center my-4">
+                  <h5> AddService per booking: </h5>
+                  <p>$250.00</p>
+                </div>
+                <button className="w-full py-4 rounded-lg text-white bg-orange-500">Book Now</button>
+              </div>
             </div>
 
             {/* Another Section  Two*/}

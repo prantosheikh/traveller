@@ -71,11 +71,11 @@ const Hero = () => {
                   placeholder="Search"
                   name="search"
                   required
-                  className="px-4 py-3 border w-full border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ce5a25]"
+                  className="px-4 py-3 border w-full border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <button
                   type="submit"
-                  className="ml-2 px-4 py-3 bg-[#ce5a25] transition-transform 
+                  className="ml-2 px-4 py-3 bg-orange-500 transition-transform 
                    text-white rounded-md focus:outline-none"
                 >
                   Search
@@ -88,7 +88,7 @@ const Hero = () => {
                     <ul className="autocomplete-dropdown mt-5 bg-white rounded ">
                       {featured.map((featuredItem) => (
                         <Link
-                          className="w-full text-black text-sm py-2 hover:text-[#ce5a25] px-3 flex items-center justify-between hover:underline"
+                          className="w-full text-black text-sm py-2 hover:text-orange-500 px-3 flex items-center justify-between hover:underline"
                           to={`/featured-details/${featuredItem?._id}`}
                           key={featuredItem._id}
                           onClick={() => {
@@ -109,11 +109,11 @@ const Hero = () => {
              data-aos-anchor="#example-anchor"
              data-aos-offset="500"
              data-aos-duration="2000">
-              <div className="bg-slate-50 opacity-80   border-e-8 border-[#ce5a25] lg:w-full rounded-tl-3xl px-8 py-7 mt-4">
+              <div className="bg-slate-50 opacity-80   border-e-8 border-orange-500 lg:w-full rounded-tl-3xl px-8 py-7 mt-4">
                 <h1 className="lg:text-4xl font-bold text-black">
                   Let us help you to find
                   <br />{" "}
-                  <span className="text-[#ce5a25]">Your Destination</span>
+                  <span className="text-orange-500">Your Destination</span>
                 </h1>
                 <p className="text-gray-700 mb-5 hidden lg:block">
                   Discover, compare, and book from a selection of over 15,000
@@ -121,7 +121,7 @@ const Hero = () => {
                   click – explore the world seamlessly.
                 </p>
                 <div className="mt-4 lg:mb-3">
-                  <Link className="py-2 px-3 lg:px-8 -translate-y-6 scale-75 text-gray-800 border-2 border-[#ce5a25] rounded-2xl hover:bg-[#ce5a25] transform hover:text-white">
+                  <Link className="py-2 px-3 lg:px-8 -translate-y-6 scale-75 text-gray-800 border-2 border-orange-500 rounded-2xl hover:bg-orange-500 transform hover:text-white">
                     Get Started
                   </Link>
                 </div>
