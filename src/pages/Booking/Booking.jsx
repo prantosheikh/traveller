@@ -12,9 +12,21 @@ import Container from "../../components/Shared/Container/Container";
 
 import { CiLocationOn } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { IoCheckmark } from "react-icons/io5";
 // Import Swiper React components
 
+import GoogleMapReact from "google-map-react";
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
 const Booking = () => {
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627,
+    },
+    zoom: 11,
+  };
   const { id } = useParams();
   console.log(id);
 
@@ -43,154 +55,216 @@ const Booking = () => {
         </button>
         <h2 className="text-3xl font-bold">{trips?.title}</h2>
 
-        <div className=" flex justify-between items-center my-4">
-          <div className="flex items-center gap-2 text-base ">
-            {trips?.reviews && trips.reviews.length > 0 ? (
-              <>
-                <Rating
-                  placeholderRating={trips.reviews[0]?.rating}
-                  emptySymbol={
-                    <FaRegStar className="text-orange-300"></FaRegStar>
-                  }
-                  placeholderSymbol={
-                    <FaStar className="text-orange-500"></FaStar>
-                  }
-                  fullSymbol={<FaStar></FaStar>}
-                  readonly
-                />
-                <p className="-mt-1">
-                  {trips.reviews[0]?.rating} by {trips.reviews?.length} reviews
-                </p>
-              </>
-            ) : (
-              <p>No reviews available</p>
-            )}
+        <div>
+          <div className=" flex justify-between items-center my-4">
+            <div className="flex items-center gap-2 text-base ">
+              {trips?.reviews && trips.reviews.length > 0 ? (
+                <>
+                  <Rating
+                    placeholderRating={trips.reviews[0]?.rating}
+                    emptySymbol={
+                      <FaRegStar className="text-orange-300"></FaRegStar>
+                    }
+                    placeholderSymbol={
+                      <FaStar className="text-orange-500"></FaStar>
+                    }
+                    fullSymbol={<FaStar></FaStar>}
+                    readonly
+                  />
+                  <p className="-mt-1">
+                    {trips.reviews[0]?.rating} by {trips.reviews?.length}{" "}
+                    reviews
+                  </p>
+                </>
+              ) : (
+                <p>No reviews available</p>
+              )}
 
-            <div className="flex items-center text-base -mt-2 gap-2">
-              <CiLocationOn className="text-2xl" />
-              {trips?.location}
-            </div>
-          </div>
-
-          <div className="flex justify-between items-center gap-6 text-[16px] text-gray-600">
-            <div className="flex justify-center gap-3 items-center">
-              <RiShareBoxFill />
-              <span>Share</span>
-            </div>
-            <div className="flex justify-center gap-3 items-center">
-              <FaRegHeart />
-              <span>Wishlist</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Photo */}
-        <div className="flex justify-between items-center gap-6">
-          <div className="w-[60%] ">
-            <div className="relative overflow-hidden rounded-lg group">
-              <img
-                src={trips.pOne}
-                alt={`Image`}
-                className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 w-[39%]">
-            <div className="relative overflow-hidden rounded-lg group">
-              <img
-                src={trips.pTwo}
-                alt={`Image`}
-                className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4 items-center">
-              <div className="relative overflow-hidden rounded-lg group">
-                <img
-                  src={trips.pThree}
-                  alt={`Image`}
-                  className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
-                />
+              <div className="flex items-center text-base -mt-2 gap-2">
+                <CiLocationOn className="text-2xl" />
+                {trips?.location}
               </div>
+            </div>
+
+            <div className="flex justify-between items-center gap-6 text-[16px] text-gray-600">
+              <div className="flex justify-center gap-3 items-center">
+                <RiShareBoxFill />
+                <span>Share</span>
+              </div>
+              <div className="flex justify-center gap-3 items-center">
+                <FaRegHeart />
+                <span>Wishlist</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Photo */}
+          <div className="flex justify-between items-center gap-6">
+            <div className="w-[60%] ">
               <div className="relative overflow-hidden rounded-lg group">
                 <img
-                  src={trips.pFour}
+                  src={trips.pOne}
                   alt={`Image`}
                   className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
                 />
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Another Section  */}
-
-        <div className="flex justify-between gap-4 my-10">
-          <div className="w-[70%]">
-            <div className="grid grid-cols-4 items-center">
-              <div className="flex gap-3 items-center">
-                <div className="border rounded-lg p-4">
-                  <FaRegFlag className="text-xl" />
-                </div>
-                <div>
-                  <p className="text-base  text-gray-700">Tour Code</p>
-                  <p className="text-gray-700">{trips?.tourCode}</p>
-                </div>
+            <div className="flex flex-col gap-4 w-[39%]">
+              <div className="relative overflow-hidden rounded-lg group">
+                <img
+                  src={trips.pTwo}
+                  alt={`Image`}
+                  className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
+                />
               </div>
-
-              <div className="flex gap-3 items-center">
-                <div className="border rounded-lg p-4">
-                  <WiTime10 className="text-xl" />
+              <div className="grid grid-cols-2 gap-4 items-center">
+                <div className="relative overflow-hidden rounded-lg group">
+                  <img
+                    src={trips.pThree}
+                    alt={`Image`}
+                    className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
+                  />
                 </div>
-                <div>
-                  <p className="text-base text-gray-700">Duratio</p>
-                  <p className="text-gray-700">{trips?.duration}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-center">
-                <div className="border rounded-lg p-4">
-                  <MdGroups className="text-xl" />
-                </div>
-                <div>
-                  <p className="text-base text-gray-700">Guests</p>
-                  <p className="text-gray-700">{trips?.guests}</p>
-                </div>
-              </div>
-              <div className="flex gap-3 items-center">
-                <div className="border rounded-lg p-4">
-                  <CiMoneyCheck1 className="text-xl" />
-                </div>
-                <div>
-                  <p className="text-base text-gray-700">Price</p>
-                  <p className="text-gray-700"> from {trips?.price}</p>
+                <div className="relative overflow-hidden rounded-lg group">
+                  <img
+                    src={trips.pFour}
+                    alt={`Image`}
+                    className="object-cover w-full h-full scale-100 group-hover:scale-110 duration-500"
+                  />
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-[30%]">2</div>
-        </div>
+          {/* Another Section  */}
 
-        {/* Another Section  Two*/}
-        <div className="w-[70%]">
           <div>
-            <h3 className="text-4xl font-medium">Description</h3>
-            <p className="mt-4 text-base text-gray-700" style={{ lineHeight: "30px" }}>
-              {trips?.description}
-            </p>
-          </div>
-          <div className="my-4">
-            <h2 className="text-2xl mt-7 mb-4">Tour Highlights</h2>
-            
+            <div className="flex gap-12 my-10">
+              <div className="w-[70%]">
+                {" "}
+                <div className="">
+                  <div className="grid grid-cols-4 items-center">
+                    <div className="flex gap-3 items-center">
+                      <div className="border rounded-lg p-4">
+                        <FaRegFlag className="text-xl" />
+                      </div>
+                      <div>
+                        <p className="text-base  text-gray-700">Tour Code</p>
+                        <p className="text-gray-700">{trips?.tourCode}</p>
+                      </div>
+                    </div>
 
-            {trips?.tourHighlights && trips.tourHighlights.length > 0 ? (
-              <>
-              {trips?.tourHighlights.map((tourHighlight) => (
-              <li style={{lineHeight: "35px"}} className="text-base text-gray-800">{tourHighlight}</li>
-            ))}
-              </>
-            ) : (
-              <p>No available</p>
-            )}
+                    <div className="flex gap-3 items-center">
+                      <div className="border rounded-lg p-4">
+                        <WiTime10 className="text-xl" />
+                      </div>
+                      <div>
+                        <p className="text-base text-gray-700">Duratio</p>
+                        <p className="text-gray-700">{trips?.duration}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3 items-center">
+                      <div className="border rounded-lg p-4">
+                        <MdGroups className="text-xl" />
+                      </div>
+                      <div>
+                        <p className="text-base text-gray-700">Guests</p>
+                        <p className="text-gray-700">{trips?.guests}</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 items-center">
+                      <div className="border rounded-lg p-4">
+                        <CiMoneyCheck1 className="text-xl" />
+                      </div>
+                      <div>
+                        <p className="text-base text-gray-700">Price</p>
+                        <p className="text-gray-700"> from {trips?.price}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h3 className="text-3xl mt-8 font-semibold">Description</h3>
+                    <p
+                      className="mt-4 text-base text-gray-700"
+                      style={{ lineHeight: "30px" }}
+                    >
+                      {trips?.description}
+                    </p>
+                  </div>
+                  <div className="flex justify-between ms-10 items-center gap-4">
+                    <div className="my-4">
+                      <h2 className="text-2xl mt-7 font-semibold mb-4">
+                        Tour Highlights
+                      </h2>
+
+                      {trips?.tourHighlights &&
+                      trips.tourHighlights.length > 0 ? (
+                        <>
+                          {trips?.tourHighlights.map((tourHighlight) => (
+                            <li
+                              style={{ lineHeight: "35px" }}
+                              className="text-base text-gray-800"
+                            >
+                              {tourHighlight}
+                            </li>
+                          ))}
+                        </>
+                      ) : (
+                        <p>No available</p>
+                      )}
+                    </div>
+
+                    <div className="my-4 me-20">
+                      <h2 className="text-2xl mt-7 font-semibold mb-4">
+                        Amenities
+                      </h2>
+                      {trips?.amenities && trips.amenities.length > 0 ? (
+                        <>
+                          {trips?.amenities.map((amenitie) => (
+                            <p
+                              style={{ lineHeight: "35px" }}
+                              className="text-base text-gray-800"
+                            >
+                              <div className="flex items-center gap-2">
+                                {" "}
+                                <div className="bg-green-50 rounded-full p-2">
+                                  <IoCheckmark className="text-green-600" />{" "}
+                                </div>
+                                {amenitie}
+                              </div>
+                            </p>
+                          ))}
+                        </>
+                      ) : (
+                        <p>No available</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div
+                    className="my-10"
+                    style={{ height: "100vh", width: "100%" }}
+                  >
+                    <GoogleMapReact
+                      bootstrapURLKeys={{ key: "" }}
+                      defaultCenter={defaultProps.center}
+                      defaultZoom={defaultProps.zoom}
+                    >
+                      <AnyReactComponent
+                        lat={59.955413}
+                        lng={30.337844}
+                        text="My Marker"
+                      />
+                    </GoogleMapReact>
+                  </div>
+                </div>
+              </div>
+              <div className="w-[30%] border sticky top-0 border-orange-600 rounded-lg"></div>
+            </div>
+
+            {/* Another Section  Two*/}
           </div>
         </div>
       </div>
