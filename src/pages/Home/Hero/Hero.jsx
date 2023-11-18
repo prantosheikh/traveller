@@ -23,7 +23,7 @@ const Hero = () => {
       return;
     }
 
-    fetch(`http://localhost:3000/search/${searchValue}`)
+    fetch(`https://traveller-server-one.vercel.app/search/${searchValue}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -44,11 +44,11 @@ const Hero = () => {
     <div className="">
       <Toaster />
       <div className="relative">
-        <LazyLoad height={762}>
+        <LazyLoad >
           <img src="https://i.ibb.co/0MRk73t/slider71.jpg" alt="" />
         </LazyLoad>
 
-        <div className="absolute w-full top-[44%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-shadow-md">
+        <div className="absolute w-full top-[70%] md:top-[44%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-shadow-md">
           <div></div>
           <div className="w-1/2 mx-auto">
             <div className="input-group flex flex-col">
@@ -71,25 +71,25 @@ const Hero = () => {
                   placeholder="Search"
                   name="search"
                   required
-                  className="px-4 py-3 border w-full border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="px-2 md:px-4 py-2 md:py-3 border w-full border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <button
                   type="submit"
-                  className="ml-2 px-4 py-3 bg-orange-500 transition-transform 
+                  className="ml-2 px-2 md:px-4 py-2 md:py-3 bg-orange-500 transition-transform 
                    text-white rounded-md focus:outline-none"
                 >
                   Search
                 </button>
               </form>
 
-              <div className="w-full py-1  overflow-visible">
+              <div className="w-full py-1  overflow-auto h-16">
                 {showAutocomplete && featured.length > 0 && (
                   <div className="w-full">
                     <ul className="autocomplete-dropdown mt-5 bg-white rounded ">
                       {featured.map((featuredItem) => (
                         <Link
                           className="w-full text-black text-sm py-2 hover:text-orange-500 px-3 flex items-center justify-between hover:underline"
-                          to={`/featured-details/${featuredItem?._id}`}
+                          to={`/booking/${featuredItem?._id}`}
                           key={featuredItem._id}
                           onClick={() => {
                             setSearch(featuredItem.name);
@@ -109,7 +109,7 @@ const Hero = () => {
              data-aos-anchor="#example-anchor"
              data-aos-offset="500"
              data-aos-duration="2000">
-              <div className="bg-slate-50 opacity-80   border-e-8 border-orange-500 lg:w-full rounded-tl-3xl px-8 py-7 mt-4">
+              <div className="bg-slate-50 opacity-80 hidden md:block border-e-8 border-orange-500 lg:w-full rounded-tl-3xl px-8 py-7 mt-4">
                 <h1 className="lg:text-4xl font-bold text-black">
                   Let us help you to find
                   <br />{" "}

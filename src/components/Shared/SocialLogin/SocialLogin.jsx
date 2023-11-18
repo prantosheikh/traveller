@@ -22,7 +22,7 @@ const SocialLogin = () => {
             photo: loggedInUser.photoURL,
           };
 
-          fetch("http://localhost:3000/users", {
+          fetch("https://traveller-server-one.vercel.app/users", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(saveUser),

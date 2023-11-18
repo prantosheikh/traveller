@@ -16,6 +16,7 @@ import { IoCheckmark } from "react-icons/io5";
 // Import Swiper React components
 
 import GoogleMapReact from "google-map-react";
+import Calendar from "./Calendar";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -34,7 +35,7 @@ const Booking = () => {
   console.log(trips);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/featured-details/${id}`, {
+    fetch(`https://traveller-server-one.vercel.app/featured-details/${id}`, {
       method: "GET",
       headers: { "content-type": "application/json" },
     })
@@ -56,7 +57,7 @@ const Booking = () => {
         <h2 className="text-3xl font-bold">{trips?.title}</h2>
 
         <div>
-          <div className=" flex justify-between items-center my-4">
+          <div className="md:flex justify-between items-center my-4">
             <div className="flex items-center gap-2 text-base ">
               {trips?.reviews && trips.reviews.length > 0 ? (
                 <>
@@ -86,7 +87,7 @@ const Booking = () => {
               </div>
             </div>
 
-            <div className="flex justify-between items-center gap-6 text-[16px] text-gray-600">
+            <div className="flex md:justify-between items-center gap-6 text-[16px] text-gray-600">
               <div className="flex justify-center gap-3 items-center">
                 <RiShareBoxFill />
                 <span>Share</span>
@@ -99,8 +100,8 @@ const Booking = () => {
           </div>
 
           {/* Photo */}
-          <div className="flex justify-between items-center gap-6">
-            <div className="w-[60%] ">
+          <div className="md:flex justify-between items-center gap-6">
+            <div className="md:w-[60%] w-full">
               <div className="relative overflow-hidden rounded-lg group">
                 <img
                   src={trips.pOne}
@@ -109,7 +110,7 @@ const Booking = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-4 w-[39%]">
+            <div className="flex flex-col my-4 md:my-0 gap-4 lg:w-[39%] w-full">
               <div className="relative overflow-hidden rounded-lg group">
                 <img
                   src={trips.pTwo}
@@ -138,11 +139,12 @@ const Booking = () => {
           {/* Another Section  */}
 
           <div>
-            <div className="flex gap-12 my-10">
-              <div className="w-[70%]">
+        
+            <div className="md:flex gap-12 my-10">
+              <div className="md:w-[70%] w-full">
                 {" "}
                 <div className="">
-                  <div className="grid grid-cols-4 items-center">
+                  <div className="grid grid-cols-2 gap-4 md:grid-cols-4 items-center">
                     <div className="flex gap-3 items-center">
                       <div className="border rounded-lg p-4">
                         <FaRegFlag className="text-xl" />
@@ -193,7 +195,7 @@ const Booking = () => {
                       {trips?.description}
                     </p>
                   </div>
-                  <div className="flex justify-between ms-10 items-center gap-4">
+                  <div className="md:flex justify-between md:ms-10 items-center gap-4">
                     <div className="my-4">
                       <h2 className="text-2xl mt-7 font-semibold mb-4">
                         Tour Highlights
@@ -259,10 +261,11 @@ const Booking = () => {
                       />
                     </GoogleMapReact>
                   </div>
+                  <Calendar/>
                 </div>
               </div>
-
-              <div className="w-[30%] p-10 border sticky top-28 bottom-12 h-96 border-orange-600 rounded-lg">
+             
+              <div className="md:w-[30%] p-10 border md:sticky md:top-28 bottom-12 h-96 border-orange-600 rounded-lg">
                 <h3 className="text-xl">Booking Form</h3>
                 <div className="flex justify-between my-4">
                   <h4 className="text-lg">From:</h4>
@@ -280,11 +283,14 @@ const Booking = () => {
                   <h5> AddService per booking: </h5>
                   <p>$250.00</p>
                 </div>
-                <button className="w-full py-4 rounded-lg text-white bg-orange-500">Book Now</button>
+                <button className="w-full py-4 rounded-lg text-white bg-orange-500">
+                  Book Now
+                </button>
               </div>
             </div>
 
             {/* Another Section  Two*/}
+           
           </div>
         </div>
       </div>

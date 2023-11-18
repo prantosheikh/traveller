@@ -13,19 +13,26 @@ import "swiper/css/navigation";
 
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import Loader from "../../../components/Loader/Loader";
 import "./styles.css";
 
 // import required modules
 
 const Featured = () => {
   const [featureds, setFeatured] = useState([]);
+  const [loading, setLoading] = useState(true);
   console.log(featureds);
 
   useEffect(() => {
-    fetch("http://localhost:3000/featuredtrips")
+    fetch("https://traveller-server-one.vercel.app/featuredtrips")
       .then((res) => res.json())
       .then((data) => setFeatured(data));
+      setLoading(false);
   }, []);
+  if (loading) {
+    // Show loader while data is being fetched
+    return <Loader />;
+  }
 
   return (
     <>
@@ -37,7 +44,17 @@ const Featured = () => {
           <>
             <Swiper
               Swiper
-              slidesPerView={3}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  // spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  // spaceBetween: 40,
+                },
+              }}
               spaceBetween={30}
               className="mySwiper"
             >

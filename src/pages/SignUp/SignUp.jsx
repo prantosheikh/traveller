@@ -30,7 +30,7 @@ const SignUp = () => {
           date: data.date,
         };
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://traveller-server-one.vercel.app/users", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(saveUser),
@@ -146,7 +146,7 @@ const SignUp = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="bg-[#ce5a25] border rounded-lg w-100  text-white font-semibold py-4"
+                className="bg-orange-500 border rounded-lg w-100  text-white font-semibold py-4"
               >
                 Sign Up
               </button>
@@ -154,7 +154,7 @@ const SignUp = () => {
            <div className="mt-4">
            <p className="mb-5">
             Already member?{" "}
-            <Link to="/login" className="text-[#ce5a25]">
+            <Link to="/login" className="text-orange-500">
               Login here.
             </Link>
           </p>
