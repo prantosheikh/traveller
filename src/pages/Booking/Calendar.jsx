@@ -23,13 +23,15 @@ const Calendar = () => {
   ]);
 
   return (
-    <div>
+    <div >
+      <h2 className="text-3xl my-8">Calendar & Prices</h2>
       <div className="hidden md:block">
         <DateRangePicker
           onChange={(item) => setState([item.selection])}
           showSelectionPreview={true}
           moveRangeOnFirstSelection={false}
           months={2}
+          s
           ranges={state}
           direction="horizontal"
         />

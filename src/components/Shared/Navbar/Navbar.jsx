@@ -79,7 +79,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="group w-full">
-                  <Link to="/admission">
+                  <Link to="/destination">
                   Destination
                     <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500  mt-[1px]"></span>
                   </Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="group">
-              <Link to="/admission">
+              <Link to="/destination">
               Destination
                 <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-1 bg-orange-500 mt-[1px]"></span>
               </Link>

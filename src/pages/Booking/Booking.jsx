@@ -18,7 +18,9 @@ import { IoCheckmark } from "react-icons/io5";
 
 import GoogleMapReact from "google-map-react";
 import Calendar from "./Calendar";
+import Review from "./Reviews/Review";
 import Reviews from "./Reviews/Reviews";
+import Support from "./Support";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -250,9 +252,10 @@ const Booking = () => {
                   </div>
 
                   <div
-                    className="my-10"
-                    style={{ height: "100vh", width: "100%" }}
+                    className="my-20"
+                    style={{ height: "100vh", width: "100%",}}
                   >
+                    <h2 className="text-3xl my-4">Tour Map</h2>
                     <GoogleMapReact
                       bootstrapURLKeys={{ key: "" }}
                       defaultCenter={defaultProps.center}
@@ -265,10 +268,14 @@ const Booking = () => {
                       />
                     </GoogleMapReact>
                   </div>
-                  <Calendar/>
+               
+
+                  <Calendar />
+                
                   <FaqSection/>
                   <div className="divider"></div> 
                   <Reviews reviews={trips?.reviews}/>
+                  <Review/>
                 </div>
               </div>
              
@@ -300,6 +307,7 @@ const Booking = () => {
            
           </div>
         </div>
+        <Support/>
       </div>
     </Container>
   );

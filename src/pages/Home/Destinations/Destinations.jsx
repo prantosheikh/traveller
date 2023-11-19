@@ -13,7 +13,7 @@ const Destinations = () => {
       <div className="hidden md:flex justify-between items-start">
         <div className="w-[67%]">
           <div className="flex justify-center items-center gap-6">
-            <Link to="/">
+            <Link to="/destinations/paris">
               <div className="relative group cursor-pointer">
                 <img src="https://i.ibb.co/FkpPrxD/h3-des1.jpg" alt="" />
                 <div className="absolute bottom-16 left-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300">

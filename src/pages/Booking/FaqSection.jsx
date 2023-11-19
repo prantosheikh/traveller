@@ -4,6 +4,7 @@ import React from "react";
 const FaqSection = () => {
   return (
     <div className="my-7">
+      <h2 className="text-3xl my-4">Questions & Answers</h2>
       <Accordion collapseAll>
         <Accordion.Panel className="border">
           <Accordion.Title>Can I get the refund?</Accordion.Title>
