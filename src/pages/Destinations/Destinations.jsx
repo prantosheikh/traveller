@@ -16,7 +16,7 @@ const Destinations = () => {
   console.log(destinations);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/destinations/${id}`)
+    fetch(`https://traveller-server-one.vercel.app/destinations/${id}`)
       .then((res) => res.json())
       .then((data) => setDestinations(data));
   }, []);
@@ -90,7 +90,6 @@ const Destinations = () => {
                   </span>
                 </p>
 
-                {/* className="absolute bottom-16 left-10 group-hover:opacity-100 opacity-0 transition-opacity duration-300" */}
 
                 <button className=" group-hover:bg-orange-500 border group-hover:text-white group-hover:duration-300 text-orange-500 border-orange-500 bg-white flex items-center gap-4 py-4 px-10 font-semibold rounded-lg">
                   View Details <GoArrowUpRight className="text-base" />
