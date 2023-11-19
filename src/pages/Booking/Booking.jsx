@@ -5,6 +5,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdGroups } from "react-icons/md";
 import { RiShareBoxFill } from "react-icons/ri";
 import { WiTime10 } from "react-icons/wi";
+import FaqSection from '../../pages/Booking/FaqSection';
 
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
@@ -17,6 +18,7 @@ import { IoCheckmark } from "react-icons/io5";
 
 import GoogleMapReact from "google-map-react";
 import Calendar from "./Calendar";
+import Reviews from "./Reviews/Reviews";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -33,6 +35,8 @@ const Booking = () => {
 
   const [trips, setTrips] = useState([]);
   console.log(trips);
+  
+
 
   useEffect(() => {
     fetch(`https://traveller-server-one.vercel.app/featured-details/${id}`, {
@@ -262,6 +266,9 @@ const Booking = () => {
                     </GoogleMapReact>
                   </div>
                   <Calendar/>
+                  <FaqSection/>
+                  <div className="divider"></div> 
+                  <Reviews reviews={trips?.reviews}/>
                 </div>
               </div>
              
