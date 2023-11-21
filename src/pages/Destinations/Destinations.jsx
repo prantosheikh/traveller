@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
-import { GoArrowUpRight } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdAccessTime } from "react-icons/md";
 import Rating from "react-rating";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Container from "../../components/Shared/Container/Container";
 
 const Destinations = () => {
   const { id } = useParams();
   console.log(id);
 
-  
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    // Replace the current route with the new route
+    navigate('/', { replace: true });
+  };
+
+
 
   const [destinations, setDestinations] = useState([]);
   console.log(destinations);
@@ -95,8 +101,8 @@ const Destinations = () => {
                 </p>
 
 
-                <Link to={`booking/${destination?._id}`} className=" group-hover:bg-orange-500 border group-hover:text-white group-hover:duration-300 text-orange-500 border-orange-500 bg-white flex items-center gap-4 py-4 px-10 font-semibold rounded-lg">
-                  View Details <GoArrowUpRight className="text-base" />
+                <Link to={`booking/${destination?._id}`}  onClick={handleButtonClick}  className=" group-hover:bg-orange-500 border group-hover:text-white group-hover:duration-300 text-orange-500 border-orange-500 bg-white flex items-center gap-4 py-4 px-10 font-semibold rounded-lg">
+                 d
                 </Link>
               </div>
             </div>
