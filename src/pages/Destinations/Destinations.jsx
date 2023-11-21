@@ -12,8 +12,12 @@ const Destinations = () => {
   const { id } = useParams();
   console.log(id);
 
+  
+
   const [destinations, setDestinations] = useState([]);
   console.log(destinations);
+
+
 
   useEffect(() => {
     fetch(`https://traveller-server-one.vercel.app/destinations/${id}`)
@@ -91,9 +95,9 @@ const Destinations = () => {
                 </p>
 
 
-                <button className=" group-hover:bg-orange-500 border group-hover:text-white group-hover:duration-300 text-orange-500 border-orange-500 bg-white flex items-center gap-4 py-4 px-10 font-semibold rounded-lg">
+                <Link to={`booking/${destination?._id}`} className=" group-hover:bg-orange-500 border group-hover:text-white group-hover:duration-300 text-orange-500 border-orange-500 bg-white flex items-center gap-4 py-4 px-10 font-semibold rounded-lg">
                   View Details <GoArrowUpRight className="text-base" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
