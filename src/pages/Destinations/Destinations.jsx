@@ -102,7 +102,7 @@ const Destinations = () => {
 
 
                 <Link to={`booking/${destination?._id}`}  onClick={handleButtonClick}  className=" group-hover:bg-orange-500 border group-hover:text-white group-hover:duration-300 text-orange-500 border-orange-500 bg-white flex items-center gap-4 py-4 px-10 font-semibold rounded-lg">
-                 d
+                View Details 
                 </Link>
               </div>
             </div>
