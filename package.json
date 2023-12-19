@@ -18,7 +18,7 @@
     "@headlessui/react": "^1.7.17",
     "aos": "^2.3.4",
     "date-fns": "^2.30.0",
-    "firebase": "^10.6.0",
+    "firebase": "^10.7.0",
     "flowbite-react": "^0.6.4",
     "fullcalendar": "^6.1.9",
     "google-map-react": "^2.2.1",
